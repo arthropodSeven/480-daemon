@@ -1,13 +1,4 @@
-#include<stdio.h>
-#include<syslog.h>
-#include<string.h>
-#include<stdlib.h>
-#include<unistd.h>
-#include<stdbool.h>
-#include<sys/stat.h>
-#include<sys/types.h>
-
-int main( int argc, char* argv )
+int daemon_init ()
 {
     pid_t my_pid;
     int file_desc;

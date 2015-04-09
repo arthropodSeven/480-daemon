@@ -2,7 +2,7 @@
 
 int main( int argc, char* argv )
 {
-    i = 0;
+    int i = 0;
     while( true )
     {
         sleep(5);
