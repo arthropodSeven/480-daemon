@@ -2,6 +2,8 @@
 
 int main( int argc, char* argv )
 {
+    signal( SIGTERM, daemon_kill );
+
     int i = 0;
     while( true )
     {
@@ -9,5 +11,6 @@ int main( int argc, char* argv )
         syslog( LOG_INFO, "This is message number %d after %d seconds", i,
                 (5*i) );
         i++;
+
     }
 }
