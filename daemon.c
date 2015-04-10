@@ -17,7 +17,7 @@ void daemon_init ()
     }
     else
     {
-        printf( "Aha! I'm in the background. My pid is: %d\n", getpid() );
+        printf( "Aha! I'm in the background." );
         printf( "First, open the syslog\n" );
         // Open the log: indicate our name, write directly to console if
         // can't write to log; indicate that we're a daemon
