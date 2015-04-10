@@ -8,5 +8,5 @@
 #include<sys/stat.h>
 #include<sys/types.h>
 
-int daemon_init ();
+void daemon_init ();
 void daemon_kill( int signal );
