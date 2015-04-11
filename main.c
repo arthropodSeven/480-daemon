@@ -1,6 +1,6 @@
 #include"daemon.h"
 
-int main( int argc, char* argv )
+int main( int argc, char* argv[] )
 {
     daemon_init();
     signal( SIGTERM, daemon_kill );
