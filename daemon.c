@@ -92,11 +92,15 @@ void * client_handler ( void *v_args )
     // EOF or EOT signal, read() will return 0)
     while( read( client_socket, &input, sizeof(char) ) != 0 )
     {
-        // Write that back, if it wasn't EOF/EOT
-        write( client_socket, &input, sizeof(char) );
+        // Write that back, if it wasn't EOF/EOT or 'q'
+        if( input != 'q' )
+            write( client_socket, &input, sizeof(char) );
+        else
+            break;
     }
 
     // We caught EOF/EOT, so clean up
+    write( client_socket, "Connection closed", sizeof ("Connection closed") );
     close( client_socket );
     pthread_exit( NULL );
 
