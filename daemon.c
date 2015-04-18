@@ -100,7 +100,6 @@ void * client_handler ( void *v_args )
     }
 
     // We caught EOF/EOT, so clean up
-    write( client_socket, "Connection closed", sizeof ("Connection closed") );
     close( client_socket );
     pthread_exit( NULL );
 
