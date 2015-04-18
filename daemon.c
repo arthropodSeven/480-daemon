@@ -93,6 +93,7 @@ void * client_handler ( void *v_args )
     // EOF or EOT signal, read() will return 0)
     while( !found_q )
     {
+        read( client_socket, &input, sizeof(char) );
         // Write that back, if it wasn't EOF/EOT or 'q'
         if( input != 'q' )
             write( client_socket, &input, sizeof(char) );
