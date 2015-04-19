@@ -43,10 +43,13 @@ int main()
         // write the char to the socket
         write( client_socket, &input, sizeof(char) );
         // read server response from the socket
-        read( client_socket, &output, sizeof(char) );
-
-        printf( "%c\n", output );
-        break;
+        if( input != 'q' )
+        {
+            read( client_socket, &output, sizeof(char) );
+            printf( "%c\n", output );
+        }
+        else
+            break;
     }
     exit(EXIT_SUCCESS);
 }
