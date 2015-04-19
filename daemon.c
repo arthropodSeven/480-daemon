@@ -87,16 +87,18 @@ void * client_handler ( void *v_args )
     
     // Take one character of input at a time
     char input;
+    bool found_q = false;
     
     // We read one character and check for end of file (if we get
     // EOF or EOT signal, read() will return 0)
-    while( read( client_socket, &input, sizeof(char) ) != 0 )
+    while( !found_q )
     {
+        read( client_socket, &input, sizeof(char) );
         // Write that back, if it wasn't EOF/EOT or 'q'
         if( input != 'q' )
             write( client_socket, &input, sizeof(char) );
         else
-            break;
+            found_q = true;;
     }
 
     // We caught EOF/EOT, so clean up
