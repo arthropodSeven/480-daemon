@@ -14,7 +14,13 @@
 #include<netinet/in.h>
 
 
+// Globals
+int* g_memo_array[ 256 ];
 
 void daemon_init ();
 void daemon_kill( int signal );
 void *client_handler( void *v_args );
+
+int riemann( int input );
+int memo_find( int input );
+int memo_add( int input, int iterations );
